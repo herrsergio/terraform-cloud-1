@@ -46,25 +46,25 @@ resource "aws_instance" "example" {
   }
 }
 
-resource "aws_instance" "example2" {
-  # Ubuntu Server 18.04 LTS (HVM), SSD Volume Type in us-east-1
-  ami                    = "ami-0747bdcabd34c712a"
-  instance_type          = "t2.micro"
-  vpc_security_group_ids = [aws_security_group.instance.id]
+#resource "aws_instance" "example2" {
+  #Ubuntu Server 18.04 LTS (HVM), SSD Volume Type in us-east-1
+#  ami                    = "ami-0747bdcabd34c712a"
+#  instance_type          = "t2.micro"
+#  vpc_security_group_ids = [aws_security_group.instance.id]
 
-  user_data = <<-EOF
-              #!/bin/bash
-              echo "Hello, World Sergio 2" > index.html
-              nohup busybox httpd -f -p "${var.server_port}" &
-              EOF
+#  user_data = <<-EOF
+#              #!/bin/bash
+#              echo "Hello, World Sergio 2" > index.html
+#              nohup busybox httpd -f -p "${var.server_port}" &
+#              EOF
 
-  tags = {
-    Name = "terraform-example-2"
-    Type = "test"
-    env  = "testing"
-    madeby = "Terraform"
-  }
-}
+#  tags = {
+#    Name = "terraform-example-2"
+#    Type = "test"
+#    env  = "testing"
+#    madeby = "Terraform"
+#  }
+#}
 
 # ---------------------------------------------------------------------------------------------------------------------
 # CREATE THE SECURITY GROUP THAT'S APPLIED TO THE EC2 INSTANCE
